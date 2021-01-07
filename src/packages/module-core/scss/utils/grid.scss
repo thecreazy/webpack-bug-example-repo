@@ -1,0 +1,174 @@
+$mobile-portrait-range: (em-calc(0), em-calc(480));
+$mobile-small-landscape-range: (em-calc(481), em-calc(540));
+$mobile-landscape-range: (em-calc(481), em-calc(767));
+$mobile-range: (
+  lower-bound($mobile-portrait-range),
+  upper-bound($mobile-landscape-range)
+);
+$tablet-portrait-range: (em-calc(768), em-calc(1023));
+$tablet-landscape-range: (em-calc(1024), em-calc(1199));
+$ultrabook-range: (em-calc(1200), em-calc(1365));
+$laptop-range: (em-calc(1366), em-calc(1679));
+$hi-res-range: (em-calc(1680), em-calc(1919));
+$full-hd-range: (em-calc(1920), em-calc(99999999));
+
+$screen: "only screen";
+
+$breakpoints: mobile tablet-portrait tablet-landscape ultrabook laptop hi-res
+  full-hd;
+
+$portrait-ratio: "(max-aspect-ratio: 9/13)";
+$landscape-ratio: "(min-aspect-ratio: 13/9)";
+
+$landscape-only: "#{$screen} and #{$landscape-ratio}";
+
+$mobile-only: "#{$screen} and (max-width: #{upper-bound($mobile-range)})";
+$mobile-portrait-only: "#{$screen} and (max-width: #{upper-bound($mobile-portrait-range)})";
+$mobile-landscape-only: "#{$mobile-only} and (orientation:landscape)";
+$mobile-landscape-up: "#{$screen} and (min-width:#{lower-bound($mobile-landscape-range)})";
+$mobile-small-landscape-only: "#{$screen} and (min-width:#{lower-bound($mobile-small-landscape-range)}) and (max-width:#{upper-bound($mobile-small-landscape-range)})";
+
+$mobile-xs-only: "#{$screen} and (max-width: #{em-calc(320)})";
+
+$iphone-6-only: "#{$screen} and (min-width: #{em-calc(375)}) and (max-width: #{upper-bound($mobile-portrait-range)})";
+
+$tablet-portrait-down: "#{$screen} and (max-width:#{upper-bound($tablet-portrait-range)})";
+$tablet-portrait-up: "#{$screen} and (min-width:#{lower-bound($tablet-portrait-range)})";
+$tablet-portrait-only: "#{$screen} and (min-width:#{lower-bound($tablet-portrait-range)}) and (max-width:#{upper-bound($tablet-portrait-range)})";
+
+$tablet-landscape-down: "#{$screen} and (max-width:#{upper-bound($tablet-landscape-range)})";
+$tablet-landscape-up: "#{$screen} and (min-width:#{lower-bound($tablet-landscape-range)})";
+$tablet-landscape-only: "#{$screen} and (min-width:#{lower-bound($tablet-landscape-range)}) and (max-width:#{upper-bound($tablet-landscape-range)})";
+
+$mobile-tablet-only: "#{$screen} and (max-width: #{upper-bound($tablet-portrait-range)})";
+
+$ultrabook-down: "#{$screen} and (max-width:#{upper-bound($ultrabook-range)})";
+$ultrabook-up: "#{$screen} and (min-width:#{lower-bound($ultrabook-range)})";
+$ultrabook-only: "#{$screen} and (min-width:#{lower-bound($ultrabook-range)}) and (max-width:#{upper-bound($ultrabook-range)})";
+
+$laptop-down: "#{$screen} and (max-width:#{upper-bound($laptop-range)})";
+$laptop-up: "#{$screen} and (min-width:#{lower-bound($laptop-range)})";
+$laptop-only: "#{$screen} and (min-width:#{lower-bound($laptop-range)}) and (max-width:#{upper-bound($laptop-range)})";
+
+$hi-res-down: "#{$screen} and (max-width:#{upper-bound($hi-res-range)})";
+$hi-res-up: "#{$screen} and (min-width:#{lower-bound($hi-res-range)})";
+$hi-res-only: "#{$screen} and (min-width:#{lower-bound($hi-res-range)}) and (max-width:#{upper-bound($hi-res-range)})";
+
+$full-hd-down: "#{$screen} and (max-width:#{upper-bound($full-hd-range)})";
+$full-hd-up: "#{$screen} and (min-width:#{lower-bound($full-hd-range)})";
+$full-hd-only: "#{$screen} and (min-width:#{lower-bound($full-hd-range)}) and (max-width:#{upper-bound($full-hd-range)})";
+
+$retina: "#{$screen} and (-webkit-min-device-pixel-ratio: 2), #{$screen} and (min--moz-device-pixel-ratio: 2), #{$screen} and (-o-min-device-pixel-ratio: 2/1), #{$screen} and (min-device-pixel-ratio: 2), #{$screen} and (min-resolution: 192dpi), #{$screen} and (min-resolution: 2dppx)";
+$retina-plus: "#{$screen} and (-webkit-min-device-pixel-ratio: 3), #{$screen} and (min--moz-device-pixel-ratio: 3), #{$screen} and (-o-min-device-pixel-ratio: 3/1), #{$screen} and (min-device-pixel-ratio: 3), #{$screen} and (min-resolution: 350dpi), #{$screen} and (min-resolution: 3dppx)";
+
+$map-breakpoints: (
+  "tablet-portrait-up": $tablet-portrait-up,
+  "tablet-landscape-up": $tablet-landscape-up,
+  "ultrabook-up": $ultrabook-up,
+  "laptop-up": $laptop-up,
+  "hi-res-up": $hi-res-up,
+  "full-hd-up": $full-hd-up,
+);
+
+.row {
+  width: 100%;
+  max-width: rem-calc($max-width);
+  margin: 0 auto;
+
+  > .col {
+    padding-left: rem-calc($gutter);
+    padding-right: rem-calc($gutter);
+  }
+}
+
+.autowidth {
+  width: auto !important;
+  max-height: none !important;
+}
+
+.show-mobile-portrait-only {
+  @media #{$mobile-landscape-up} {
+    display: none;
+  }
+}
+
+.show-mobile-only {
+  @media #{$tablet-portrait-up} {
+    display: none;
+  }
+}
+
+.show-mobile-landscape-up {
+  @media #{$mobile-portrait-only} {
+    display: none;
+  }
+}
+
+.show-tablet-portrait-up {
+  @media #{$mobile-only} {
+    display: none;
+  }
+}
+
+.show-tablet-landscape-up {
+  @media #{$tablet-portrait-down} {
+    display: none !important;
+  }
+}
+
+.show-tablet-landscape-only {
+  @media #{$tablet-portrait-down} {
+    display: none !important;
+  }
+  @media #{$ultrabook-up} {
+    display: none !important;
+  }
+}
+
+.block-grid {
+  margin: 0;
+  padding: 0;
+  @include flexbox();
+  @include flex-flow(row wrap);
+
+  > li,
+  > .block-element {
+    width: 100%;
+    list-style: none;
+    padding: rem-calc($gutter/2);
+  }
+
+  @each $breakpoint in $breakpoints {
+    @include media($breakpoint) {
+      @for $i from 1 through $columns {
+        &.#{$breakpoint}-#{$i} > li,
+        &.#{$breakpoint}-#{$i} > .block-element {
+          width: block-column($i);
+          @include flex(0 0 block-column($i));
+          &:nth-of-type(1n) {
+            clear: none;
+          }
+          &:nth-child(#{$i}n + 1) {
+            clear: both;
+          }
+        }
+      }
+    }
+  }
+}
+
+html.msie,
+html.ie,
+html.edge {
+  .block-grid {
+    > li,
+    > .block-element {
+      padding: 0;
+      position: relative;
+
+      > a {
+        margin: rem-calc($gutter/2);
+      }
+    }
+  }
+}

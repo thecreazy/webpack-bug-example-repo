@@ -1,0 +1,110 @@
+input,
+select,
+textarea,
+button {
+  border: none;
+  outline: none;
+}
+
+input {
+  padding: 0;
+
+  &::-ms-clear {
+    display: none; // IE FIX
+  }
+}
+
+button {
+  background: map-deep-get($colours, "cta");
+  color: $white;
+
+  @include hover-supported() {
+    background: map-deep-get($colours, "cta-hover");
+  }
+
+  &.toggler {
+    display: block;
+    width: 100%;
+    margin-top: rem-calc(8);
+    background-color: map-deep-get($colours, "toggler", "bg");
+    color: map-deep-get($colours, "toggler", "color");
+    text-align: center;
+    font-size: rem-calc(11);
+    padding: rem-calc(0 6);
+    height: rem-calc(24);
+    @include radius(12px);
+    @include bold();
+
+    @include hover-supported() {
+      background-color: map-deep-get($colours, "toggler", "hover", "bg");
+      color: map-deep-get($colours, "toggler", "hover", "color");
+    }
+
+    i {
+      font-size: rem-calc(12);
+      margin-left: rem-calc(6);
+    }
+
+    span {
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+  }
+}
+
+select.unstyled {
+  cursor: pointer;
+  margin: 0;
+  background: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* IE right arrow removal */
+  &::-ms-expand {
+    display: none;
+  }
+  /* Firefox hack to make default arrow invisible */
+  text-overflow: "";
+  text-indent: 0.01px;
+  /* Remove firefox artifact */
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+
+  &:focus {
+    outline: none;
+    &::-ms-value {
+      background: none;
+      color: #222;
+    }
+  }
+}
+
+footer #footer-top .footer-content.settings,
+#sider {
+  .select-wrapper {
+    position: relative;
+
+    select {
+      display: block;
+      width: 100%;
+      padding: rem-calc(0 $gutter/2);
+      height: rem-calc(36);
+      background: $white;
+      border: 1px $white-lilac solid;
+      @include radius();
+    }
+
+    i {
+      position: absolute;
+      top: 50%;
+      right: $gutter/2;
+      color: $river-bed;
+      margin-top: 2px;
+      font-size: rem-calc(12);
+      @include translateY(-50%);
+    }
+  }
+}

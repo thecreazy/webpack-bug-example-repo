@@ -1,0 +1,19 @@
+#debug-clickout {
+  position: fixed;
+  right: rem-calc($gutter);
+  margin-top: rem-calc($gutter);
+  background: rgba(map-deep-get($colours, "dark-bg"), 0.95);
+  color: $white;
+  font-size: rem-calc(13);
+  padding: rem-calc($gutter);
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li:not(:last-of-type) {
+      padding-bottom: rem-calc(4);
+    }
+  }
+}

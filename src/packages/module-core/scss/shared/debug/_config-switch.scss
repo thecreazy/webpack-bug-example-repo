@@ -1,0 +1,32 @@
+.debug-config-switch {
+  color: $white;
+  background: $radical-red;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+  @include radius(rem-calc(24));
+  @include material-shadow();
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 11997;
+  height: rem-calc(48);
+  padding: 0 rem-calc(16);
+  font-size: rem-calc(13);
+  text-transform: uppercase;
+  @include medium();
+
+  img {
+    width: rem-calc(16);
+    height: rem-calc(16);
+  }
+
+  &:hover {
+    background: $amaranth;
+    @include material-shadow("dark");
+  }
+
+  &__text {
+    margin: rem-calc($gutter/4 $gutter/2);
+  }
+}

@@ -1,0 +1,10 @@
+@import "../utils-mixins";
+
+.custom-button {
+  background: map-get($button, button-bg);
+  color: $apple;
+
+  &:hover {
+    background: map-get($button, button-hover);
+  }
+}

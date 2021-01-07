@@ -1,0 +1,34 @@
+/* TEXT UTILS */
+
+.sans-serif {
+  @include sans-serif();
+}
+.condensed {
+  @include condensed();
+}
+
+.light {
+  @include light();
+}
+.regular {
+  @include regular();
+}
+.medium {
+  @include medium();
+}
+.bold {
+  @include bold();
+}
+.black {
+  @include black();
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  -moz-font-feature-settings: "kern" 1;
+  -webkit-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+}

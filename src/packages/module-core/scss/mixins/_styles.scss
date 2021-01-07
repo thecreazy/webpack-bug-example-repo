@@ -1,0 +1,186 @@
+@mixin radius($r: $radius) {
+  border-radius: $r;
+  -moz-border-radius: $r;
+  -webkit-border-radius: $r;
+  -khtml-border-radius: $r;
+}
+
+@mixin linear-gradient(
+  $from_colour,
+  $to_colour,
+  $from_percentage: 0%,
+  $to_percentage: 100%
+) {
+  background: $from_colour;
+  background: -moz-linear-gradient(
+    top,
+    $from_colour $from_percentage,
+    $to_colour $to_percentage
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop($from_percentage, $from_colour),
+    color-stop($to_percentage, $to_colour)
+  );
+  background: -webkit-linear-gradient(
+    top,
+    $from_colour $from_percentage,
+    $to_colour $to_percentage
+  );
+  background: -o-linear-gradient(
+    top,
+    $from_colour $from_percentage,
+    $to_colour $to_percentage
+  );
+  background: -ms-linear-gradient(
+    top,
+    $from_colour $from_percentage,
+    $to_colour $to_percentage
+  );
+  background: linear-gradient(
+    to bottom,
+    $from_colour $from_percentage,
+    $to_colour $to_percentage
+  );
+}
+
+@mixin shadows($values...) {
+  -webkit-box-shadow: $values;
+  -moz-box-shadow: $values;
+  box-shadow: $values;
+}
+
+@mixin shadow($values) {
+  @include shadows($values);
+}
+
+@mixin material-shadow($type: normal) {
+  @if $type == "light" {
+    @include shadows(
+      0 0 2px 0 rgba($bright-grey, 0.12),
+      0 2px 2px 0 rgba($bright-grey, 0.24)
+    );
+  } @else if $type == "dark" {
+    @include shadows(
+      0 0 8px 0 rgba($bright-grey, 0.12),
+      0 8px 8px 0 rgba($bright-grey, 0.24)
+    );
+  } @else if $type == "none" {
+    @include shadows(none);
+  } @else {
+    @include shadows(
+      0 0 4px 0 rgba($bright-grey, 0.12),
+      0 4px 4px 0 rgba($bright-grey, 0.24)
+    );
+  }
+}
+
+@mixin translateX($translation) {
+  -webkit-transform: translateX($translation);
+  -ms-transform: translateX($translation);
+  transform: translateX($translation);
+}
+
+@mixin translateY($translation) {
+  -webkit-transform: translateY($translation);
+  -ms-transform: translateY($translation);
+  transform: translateY($translation);
+}
+
+@mixin translateZ($translation) {
+  -webkit-transform: translateY($translation);
+  -ms-transform: translateY($translation);
+  transform: translateY($translation);
+}
+
+@mixin translateXY($translationX, $translationY: $translationX) {
+  -webkit-transform: translate($translationX, $translationY);
+  -ms-transform: translate($translationX, $translationY);
+  transform: translate($translationX, $translationY);
+}
+
+@mixin filter($filter...) {
+  -webkit-filter: $filter;
+  -moz-filter: $filter;
+  -o-filter: $filter;
+  -ms-filter: $filter;
+  filter: $filter;
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  *zoom: 1;
+}
+
+@mixin blur-supported() {
+  @supports (backdrop-filter: blur(6px)) or (-webkit-backdrop-filter: blur(6px)) {
+    @content;
+  }
+}
+
+@mixin hover-supported($contentOnHover: true) {
+  @media not all and (hover: none) {
+    @if ($contentOnHover) {
+      &:hover {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+  // Hack: Firefox does not trigger the media query above
+  @-moz-document url-prefix() {
+    @if ($contentOnHover) {
+      &:hover {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+  /* Hack: IE10+ does not trigger the media query above */
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @if ($contentOnHover) {
+      &:hover {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+}
+
+@mixin hover-not-supported($contentOnHover: true) {
+  @media not all and (hover: hover) {
+    @if ($contentOnHover) {
+      &:hover {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+  // Hack: Firefox does not trigger the media query above
+  @-moz-document url-prefix() {
+    @if ($contentOnHover) {
+      &:hover {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+}
+
+@mixin blurred($size: rem-calc(12), $colour: $primary) {
+  text-shadow: 0 0 #{$size} #{$colour};
+  color: transparent;
+}

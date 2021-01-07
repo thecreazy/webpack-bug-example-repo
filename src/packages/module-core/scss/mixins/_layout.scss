@@ -1,0 +1,112 @@
+@mixin media($breakpoint) {
+  @if $breakpoint == mobile {
+    @content;
+  } @else {
+    $media: map-get($map-breakpoints, "#{$breakpoint}-up");
+    @media #{$media} {
+      @content;
+    }
+  }
+}
+
+@mixin ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  *zoom: 1;
+}
+@mixin box-sizing($type: border-box) {
+  -webkit-box-sizing: $type; // Android < 2.3, iOS < 4
+  -moz-box-sizing: $type;
+  box-sizing: $type; // Chrome, IE 8+, Opera, Safari 5.1
+}
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin inline-flexbox() {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex: $values;
+  -webkit-flex: $values;
+  -ms-flex: $values;
+  flex: $values;
+}
+@mixin flex-flow($values) {
+  -webkit-flex-flow: $values;
+  -moz-flex-flow: $values;
+  -ms-flex-flow: $values;
+  flex-flow: $values;
+}
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+@mixin align-items($val) {
+  $IEval: $val;
+  @if $val == flex-start {
+    $IEval: start;
+  } @else if $val == flex-end {
+    $IEval: end;
+  }
+  -webkit-flex-align: $val;
+  -ms-flex-align: $IEval;
+  -webkit-align-items: $val;
+  align-items: $val;
+}
+@mixin align-self($val) {
+  $IEval: $val;
+  @if $val == flex-start {
+    $IEval: start;
+  } @else if $val == flex-end {
+    $IEval: end;
+  }
+  -webkit-align-self: $val;
+  -ms-flex-item-align: $IEval;
+  -webkit-align-item-align: $val;
+  align-self: $val;
+}
+@mixin justify-content($val) {
+  $IEval: $val;
+  @if $val == space-between {
+    $IEval: justify;
+  } @else if $val == space-around {
+    $IEval: distribute;
+  } @else if $val == flex-start {
+    $IEval: start;
+  } @else if $val == flex-end {
+    $IEval: end;
+  }
+  -webkit-justify-content: $val;
+  -ms-flex-pack: $IEval;
+  justify-content: $val;
+}
+@mixin multi-col($cols, $gap: auto) {
+  -webkit-column-count: $cols;
+  -webkit-column-gap: $gap;
+  -moz-column-count: $cols;
+  -moz-column-gap: $gap;
+  column-count: $cols;
+  column-gap: $gap;
+}

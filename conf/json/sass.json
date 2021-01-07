@@ -1,0 +1,172 @@
+{
+  "font": {
+    "url": "'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Condensed:700&subset=latin,latin-ext'",
+    "sans-serif": ["'Roboto'", "sans-serif"],
+    "condensed": ["'Roboto Condensed'", "sans-serif"]
+  },
+  "colours": {
+    "airbnb": "#FF5A5F",
+    "body-bg": "#FFF",
+    "dark-bg": "#33395D",
+    "text-colour": "#000",
+    "primary": "#39a28a",
+    "afs": {
+      "skyscraper": {
+        "bg": "#FAFAFC",
+        "text": "#000000",
+        "domain": "#008000",
+        "links": {
+          "default": "#0000CC",
+          "hover": "#FF0000"
+        }
+      },
+      "horizontal": {
+        "bg": "#FFFFFF",
+        "text": "#000000",
+        "domain": "#008000",
+        "links": {
+          "default": "#0000CC",
+          "hover": "#FF0000"
+        }
+      },
+      "afs-skyscraper-background": "#FAFAFC",
+      "afs-horizontal-background": "#FFFFFF"
+    },
+    "cta": "#39a28a",
+    "cta-hover": "#2f8370",
+    "cta-alt": "#12305A",
+    "cta-alt-hover": "#12305A",
+    "price": "#39a28a",
+    "discount": "#FF2C69",
+    "gold": "#EF9118",
+    "success": "#79A649",
+    "danger": "#DF452D",
+    "property": {
+      "border": "#E2E5E9",
+      "room-flag": "#7DCE82"
+    },
+    "tabs": {
+      "border": "#eaeaf5",
+      "bg": "#fafafc",
+      "active": {
+        "color": "#fff",
+        "bg": "#33395d"
+      }
+    },
+    "toggler": {
+      "color": "#4a5568",
+      "bg": "rgba(59,66,83,.1)",
+      "hover": {
+        "bg": "rgba(59,66,83,.15)",
+        "color": "#4a5568"
+      }
+    },
+    "filters": {
+      "apply": "#79A649",
+      "bg": "#FAFAFC",
+      "border": "#EAEAF5",
+      "color": "#4a5568",
+      "hover": {
+        "color": "#4a5568",
+        "background": "#eaeaf5",
+        "border": "#d6d7df"
+      },
+      "remove-all": "#CF201D",
+      "rating": {
+        "good": "#CF201D",
+        "very-good": "#E37330",
+        "fabulous": "#B5AA4F",
+        "wonderful": "#79A649",
+        "exceptional": "#068236"
+      }
+    },
+    "deals": {
+      "no-deals": "#CF201D"
+    },
+    "im": {
+      "button-bg": "#FF2C69",
+      "button-bg-hover": "#12305A"
+    }
+  },
+  "border": {
+    "width": "1px",
+    "style": "solid",
+    "colour-light": "#E2E5E9",
+    "colour-medium": "#E2E5E9",
+    "colour-dark": "#E2E5E9"
+  },
+  "button": {
+    "button-bg": "#39a28a",
+    "button-hover": "#2f8370"
+  },
+  "sizes": {
+    "max-width": "1200px",
+    "hero": {
+      "mobile": {
+        "navbar": "48px",
+        "background": "184px",
+        "total": "326px",
+        "non-search": "116px",
+        "form": "250px",
+        "form-recap": "60px"
+      },
+      "desktop": "116px",
+      "tablet": "170px",
+      "components": {
+        "arrow": "8px"
+      }
+    },
+    "form": {
+      "max-width": "840px",
+      "input": {
+        "width": {
+          "desktop": "144px"
+        },
+        "height": {
+          "mobile": "48px",
+          "desktop": "56px"
+        }
+      },
+      "button": {
+        "width": {
+          "desktop": "120px"
+        }
+      }
+    },
+    "filters": {
+      "height": "60px",
+      "slider": {
+        "handle": "28px",
+        "height": "4px"
+      }
+    },
+    "logo": {
+      "small": {
+        "width": "100px",
+        "height": "20px"
+      }
+    },
+    "content": {
+      "default": "60%",
+      "hi-res": "888px"
+    },
+    "calendar": {
+      "cell": {
+        "small": "38px",
+        "medium": "40px",
+        "regular": "48px"
+      }
+    },
+    "property": {
+      "image": {
+        "x-small": "100px",
+        "small": "120px",
+        "medium": "140px",
+        "large": "160px"
+      }
+    },
+    "apps": {
+      "bottom-navigation": "45px"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+/* LAYOUT */
+
+#amse-wrapper {
+  @include flexbox();
+  @include flex-flow(column nowrap);
+
+  #hs-hero {
+    @include order(-1);
+  }
+
+  main {
+    &.loading {
+      @include spinner(24px, map-deep-get($colours, "dark-bg"));
+
+      & > * {
+        display: none;
+      }
+
+      &:before {
+        content: "";
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $white;
+        z-index: 1;
+      }
+
+      &:after {
+        position: fixed;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+@media #{$mobile-only} {
+  body.hero-top.static {
+    .hs-hero--expanded {
+      height: rem-calc(48) !important;
+    }
+    .hero-content {
+      height: rem-calc(48) !important;
+    }
+  }
+}
+
+@media #{$tablet-portrait-only} {
+  body.hero-top.search {
+    .hero-content {
+      min-height: rem-calc(164) !important;
+    }
+  }
+  body.hero-top.static {
+    .hs-hero--expanded {
+      height: rem-calc(164) !important;
+    }
+    .hero-content {
+      height: rem-calc(164) !important;
+    }
+  }
+}
+
+@media #{$tablet-landscape-up} {
+  body.hero-top:not(.home):not(.not-found):not(.compare-external):not(.static) {
+    main {
+      padding-top: $top-content-height;
+    }
+  }
+  body.hero-top.static {
+    main {
+      padding-top: rem-calc($navabar-size);
+    }
+    .hero-content {
+      height: rem-calc($navabar-size);
+      align-items: flex-start !important;
+      padding-top: rem-calc(4);
+      width: $list-width;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

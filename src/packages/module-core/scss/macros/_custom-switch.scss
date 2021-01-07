@@ -1,0 +1,81 @@
+//TODO convert debug onoffswitch into a macro
+
+$switch-width: 48px;
+$switch-height: 30px;
+$switch-handle-margin: 3px;
+$switch-handle-size: $switch-height - ($switch-handle-margin * 2);
+
+.onoffswitch {
+  position: relative;
+  width: rem-calc($switch-width);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  //border: 2px solid #999999;
+  border-radius: rem-calc($switch-height);
+}
+.onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  @include transition(margin, ease-in, 0.1s);
+}
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: rem-calc($switch-height);
+  line-height: rem-calc($switch-height);
+  padding: 0;
+  font-size: rem-calc(12);
+  color: $white;
+  @include box-sizing(border-box);
+  @include bold();
+}
+.onoffswitch-inner:before {
+  content: "";
+  //content: "ON";
+  //color: $white;
+  padding-left: 10px;
+  background-color: $mountain_meadow;
+}
+.onoffswitch-inner:after {
+  content: "";
+  //content: "OFF";
+  //color: rgba($river-bed, .5);
+  //text-align: right;
+  //text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+  padding-right: 10px;
+  background-color: $mischka;
+}
+.onoffswitch-switch {
+  display: block;
+  width: rem-calc($switch-handle-size);
+  margin: rem-calc($switch-handle-margin);
+  background: $white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: rem-calc(
+    $switch-width - $switch-handle-size - ($switch-handle-margin * 2)
+  );
+  border-radius: 50%;
+  //border: 2px solid #999999;
+  @include transition(all, ease-in-out, 0.1s);
+  @include material-shadow("light");
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0;
+}

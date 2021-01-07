@@ -1,0 +1,134 @@
+#cookie-policy {
+  z-index: 12000;
+
+  .cookie-content {
+    background-color: $white;
+    overflow: hidden;
+
+    .cookie-copy {
+      padding: rem-calc($gutter);
+
+      p {
+        font-size: rem-calc(14);
+        line-height: $golden-ratio;
+        color: $bright-grey;
+        margin: 0;
+
+        a {
+          color: #337ab7;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      button {
+        margin: 0;
+        color: $white;
+        padding: rem-calc(16);
+        white-space: nowrap;
+        background-color: $gdpr-green;
+        @include radius();
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(center);
+        @include transition(background-color);
+
+        &:hover {
+          background-color: darken($gdpr-green, 5%);
+        }
+      }
+    }
+  }
+
+  &.hard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(map-deep-get($colours, "dark-bg"), 0.9);
+    padding: rem-calc($gutter);
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+
+    .cookie-content {
+      width: 100%;
+      max-width: rem-calc(360);
+      @include radius();
+      @include flexbox();
+      @include flex-flow(column nowrap);
+
+      .cookie-header {
+        background-color: $component-colour-extralight;
+        border-bottom: 1px $component-colour-light solid;
+        display: block;
+        text-align: right;
+        padding: rem-calc(16);
+
+        svg {
+          display: block;
+          width: rem-calc(120);
+          height: rem-calc(16);
+        }
+
+        a.close {
+          color: $bright-grey;
+          font-size: rem-calc(20);
+          padding: rem-calc($gutter);
+          margin-right: rem-calc(-$gutter);
+        }
+      }
+
+      .cookie-copy {
+        button {
+          width: 100%;
+          padding-top: 0;
+          padding-bottom: 0;
+          font-size: rem-calc(18);
+          height: rem-calc(48);
+          margin-top: rem-calc($gutter);
+        }
+      }
+    }
+  }
+
+  &.soft {
+    .cookie-content {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      box-shadow: rem-calc(0 0 20) rgba($haiti, 0.25);
+
+      .cookie-copy {
+        width: 100%;
+        max-width: rem-calc($max-width);
+        margin-left: auto;
+        margin-right: auto;
+        @include flexbox();
+        @include flex-flow(column nowrap);
+        @include align-items(center);
+
+        button {
+          margin-top: rem-calc($gutter);
+        }
+
+        @media #{$tablet-portrait-up} {
+          @include flex-flow(row nowrap);
+
+          p {
+            margin-right: rem-calc($gutter * 2);
+          }
+
+          button {
+            margin-top: 0;
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+}

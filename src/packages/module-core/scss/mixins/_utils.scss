@@ -1,0 +1,132 @@
+@mixin spinner($size: 16px, $color: $river-bed) {
+  position: relative;
+
+  &:after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -$size/2;
+    margin-top: -$size/2;
+    color: $color;
+    @if (strip-unit($size) > 24) {
+      //TODO should use a smaller icon
+      content: "\f018";
+    } @else {
+      content: "\f018";
+    }
+    font-size: rem-calc($size);
+    font-family: "icons";
+    -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@mixin background-image($filename, $extension, $pixel-ratio-3: true) {
+  background-image: url("#{$filename}.#{$extension}");
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    background-image: url("#{$filename}@2x.#{$extension}");
+  }
+  @if ($pixel-ratio-3) {
+    @media only screen and (-webkit-min-device-pixel-ratio: 3),
+      only screen and (min--moz-device-pixel-ratio: 3),
+      only screen and (-o-min-device-pixel-ratio: 3/1),
+      only screen and (min-device-pixel-ratio: 3),
+      only screen and (min-resolution: 350dpi),
+      only screen and (min-resolution: 3dppx) {
+      background-image: url("#{$filename}@3x.#{$extension}");
+    }
+  }
+}
+
+@mixin truncate() {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+@mixin translucent($background: $white) {
+  @include blur-supported() {
+    background: rgba($background, 0.85) !important;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
+
+@mixin radius-button($on-translucency: false) {
+  height: rem-calc(24);
+
+  border: 1px map-deep-get($colours, "filters", "border") solid;
+  background: map-deep-get($colours, "filters", "bg");
+  color: map-deep-get($colours, "filters", "color");
+
+  padding: rem-calc(0 $gutter/2);
+  text-transform: uppercase;
+  font-size: rem-calc(11);
+  @include bold();
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+  @include radius(16px);
+
+  &.disabled,
+  &[disabled] {
+    cursor: no-drop;
+    color: $mischka;
+  }
+
+  @include hover-supported() {
+    &:not(.disabled):not([disabled]) {
+      background: map-deep-get($colours, "filters", "hover", "background");
+      border-color: map-deep-get($colours, "filters", "hover", "border");
+    }
+  }
+
+  @if ($on-translucency) {
+    @include blur-supported() {
+      background: $white;
+      border-color: $mischka;
+
+      @include hover-supported() {
+        &:not(.disabled):not([disabled]) {
+          background: $whisper;
+          border-color: $athens;
+        }
+      }
+    }
+  }
+
+  i {
+    font-size: rem-calc(12);
+    margin-left: rem-calc(6);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}

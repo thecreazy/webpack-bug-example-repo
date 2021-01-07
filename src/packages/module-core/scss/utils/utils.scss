@@ -1,0 +1,19 @@
+.truncate {
+  @include truncate();
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+  padding: rem-calc(16) 0;
+  &.--mini {
+    padding: rem-calc(8) 0;
+  }
+}
+
+.hidden {
+  display: none;
+}

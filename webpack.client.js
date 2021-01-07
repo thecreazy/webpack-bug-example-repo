@@ -135,6 +135,5 @@ module.exports = (args) => {
       ignored: ["public", "build"],
     };
   }
-  console.log(config);
   return config;
 };

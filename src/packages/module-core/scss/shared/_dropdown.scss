@@ -1,0 +1,47 @@
+.dropdown-wrapper {
+  position: relative;
+  cursor: pointer;
+
+  a.dropdown {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .dropdown-content {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+    left: 0;
+    position: absolute;
+    list-style: none;
+    background: rgba(map-deep-get($colours, "dark-bg"), 0.85);
+    padding: 0;
+    @include transition(opacity);
+
+    a {
+      display: block;
+      font-size: rem-calc(14);
+      padding: rem-calc($gutter/2);
+      color: $white;
+      white-space: nowrap;
+      cursor: pointer;
+
+      @include hover-supported() {
+        background-color: rgba($white, 0.15);
+      }
+
+      &.current {
+        background-color: $radical-red;
+      }
+    }
+  }
+
+  @include hover-supported() {
+    .dropdown-content {
+      opacity: 1;
+      height: auto;
+    }
+  }
+}

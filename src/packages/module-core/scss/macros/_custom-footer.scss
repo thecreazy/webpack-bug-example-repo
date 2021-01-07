@@ -1,0 +1,213 @@
+@import "../utils-mixins";
+
+footer {
+  .footer-container {
+    @include flexbox();
+
+    .footer-content {
+      padding: rem-calc(0 $gutter/2);
+
+      p.title {
+        font-size: rem-calc(16);
+        margin: rem-calc(0 0 8 0);
+        //@include bold();
+
+        @media #{$tablet-landscape-up} {
+          margin-bottom: rem-calc(12);
+        }
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li:not(:last-child) {
+          margin-bottom: rem-calc(4);
+
+          //@media #{$tablet-landscape-up}{
+          //  margin-bottom: rem-calc(8);
+          //}
+        }
+      }
+
+      a,
+      &.copy {
+        font-size: rem-calc(12);
+      }
+
+      a {
+        color: $white;
+        text-decoration: none;
+
+        @include hover-supported() {
+          text-decoration: underline;
+        }
+      }
+
+      //@media #{$tablet-landscape-up}{
+      //  padding: rem-calc(32 0);
+      //}
+    }
+  }
+
+  #footer-top {
+    color: $white;
+    background: darken(map-deep-get($colours, "dark-bg"), 5%);
+
+    .footer-container {
+      padding: rem-calc($gutter $gutter/2);
+
+      .footer-content {
+        padding: rem-calc(0 $gutter/2);
+        @include flex(1);
+
+        &.settings {
+          display: none;
+
+          .select-wrapper {
+            select {
+              background: rgba($black, 0.35);
+              border: 1px rgba($white, 0.35) solid;
+              @include radius();
+
+              &:not(:last-child) {
+                margin-bottom: rem-calc(10);
+              }
+            }
+
+            i {
+              color: $white;
+            }
+          }
+        }
+      }
+
+      @media #{$tablet-landscape-down} {
+        padding: rem-calc($gutter/2);
+        @include flex-flow(row wrap);
+
+        .footer-content {
+          margin: rem-calc($gutter/2 0);
+          @include flex(0 0 33%);
+
+          &.sitemap {
+            display: block;
+            @include order(1);
+          }
+
+          &.settings {
+            display: block;
+            @include order(2);
+          }
+
+          &.info {
+            @include order(3);
+          }
+
+          &.company {
+            @include order(4);
+          }
+        }
+      }
+
+      @media #{$mobile-only} {
+        .footer-content {
+          @include flex(0 0 50%);
+
+          &.sitemap {
+            display: none;
+          }
+
+          &.settings {
+            @include flex(0 0 100%);
+          }
+        }
+      }
+    }
+  }
+
+  #footer-bottom {
+    color: $bright-grey;
+    background: $white;
+
+    .footer-container {
+      padding: rem-calc($gutter $gutter/2);
+      @include flex-flow(column nowrap);
+      @include justify-content(space-between);
+      @include align-items(center);
+
+      .footer-content {
+        &.copy {
+          margin-top: rem-calc($gutter/2);
+
+          ul li {
+            text-align: center;
+          }
+        }
+
+        &.social {
+          ul {
+            @include flexbox();
+
+            li:not(:first-child) {
+              margin-left: rem-calc(16);
+            }
+
+            a {
+              display: block;
+              color: $white !important;
+              width: rem-calc($footer-social-size);
+              height: rem-calc($footer-social-size);
+              line-height: rem-calc($footer-social-size);
+              text-align: center;
+              background-color: darken(map-deep-get($colours, "dark-bg"), 5%);
+              font-size: rem-calc(24);
+              @include radius();
+              @include transition(background-color);
+
+              span {
+                display: none;
+              }
+
+              i {
+                top: 5px;
+              }
+
+              @include hover-supported() {
+                background-color: map-deep-get($colours, "cta-hover");
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+
+      @media #{$tablet-landscape-up} {
+        @include flex-flow(row nowrap);
+        @include align-items(flex-end);
+
+        .footer-content {
+          padding: rem-calc(0 $gutter/2);
+
+          &.copy {
+            margin-top: 0;
+            @include order(-1);
+
+            ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+
+              li {
+                text-align: left;
+                display: block;
+                margin-bottom: rem-calc(4);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

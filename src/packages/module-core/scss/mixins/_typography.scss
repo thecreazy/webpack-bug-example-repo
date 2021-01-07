@@ -1,0 +1,28 @@
+@mixin light() {
+  font-weight: 300 !important;
+}
+
+@mixin regular() {
+  font-weight: 400 !important;
+}
+
+@mixin medium() {
+  font-weight: 500 !important;
+}
+
+@mixin bold() {
+  font-weight: 700 !important;
+}
+
+@mixin black() {
+  font-weight: 900 !important;
+}
+
+@mixin sans-serif() {
+  font-family: map-get($font, sans-serif) !important;
+}
+
+@mixin condensed() {
+  font-family: map-get($font, condensed) !important;
+  font-weight: 700;
+}

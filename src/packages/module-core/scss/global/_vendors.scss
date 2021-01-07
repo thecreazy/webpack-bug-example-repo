@@ -1,0 +1,12 @@
+$origin: (-70, -55);
+$size: (110, 50);
+
+.ota-logo {
+  display: block;
+  width: rem-calc(80);
+  height: rem-calc(30);
+  background-size: rem-calc(880 650);
+  background-position: unquote("#{nth($origin, 1)}px")
+    unquote("#{nth($origin, 2)}px");
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,4 @@
+$navabar-size: map-deep-get($sizes, "hero", "desktop");
+$filter-size: map-deep-get($sizes, "filters", "height");
+$top-content-height: rem-calc($navabar-size + $filter-size);
+$hero-mobile-navbar: rem-calc(map-deep-get($sizes, "hero", "mobile", "navbar"));

@@ -1,0 +1,148 @@
+$img-path: "/img";
+
+$extreme-font-size: 1.875rem;
+$hugest-font-size: 1.5rem;
+$huge-font-size: 1.25rem;
+$bigger-font-size: 1.125rem;
+$big-font-size: 1rem;
+$default-font-size: 0.875rem;
+$mini-font-size: 0.75rem;
+$micro-font-size: 0.625rem;
+$nano-font-size: 0.56rem;
+
+$dark-bg: map-get($colours, "dark-bg");
+$primary-shadow: linear-gradient(62deg, #2f8370, #39a28a 266%);
+$light-bg: #dae8fa;
+$grey-color: #9b9b9b;
+$black-text: #303030;
+$grey-background: #f4f4f4;
+$grey-text: #6f6f6f;
+$more-than-grey: #e7e7e7;
+$component-colour-extralight: #edf5ff;
+$component-colour-light: #e2e4f6;
+$component-colour-medium: darken($component-colour-light, 1%);
+$component-colour-dark: desaturate(darken($component-colour-medium, 10%), 20%);
+
+/* FONTS */
+$sans-serif: "Roboto", sans-serif;
+$condensed: "Roboto Condensed", sans-serif;
+
+/* GRID */
+$columns: 12;
+$gutter: 20px;
+$max-width: 1000px;
+
+$white: #ffffff;
+$whisper: #fafafc;
+$white-smoke: #f6f6f6;
+$hawkes: #eaeaf5; // $deep-koamaru 10%
+$athens-grey: #e8ecf0;
+$white-lilac: #e9e9e9;
+$gainsboro: #dddddd;
+$mischka: #d6d7df; // $deep-koamaru 20%
+$alto: #cdcdcd;
+$athens: #c1c3ce; // $deep-koamaru 30%
+$magnesium: #b1b1b1;
+$cadet: #afb5c0; // $chateau 80%
+$chateau: #9ba3b1; // $deep-koamaru something
+$regent-grey: #7c828e;
+$river-bed: #4a5568;
+$bright-grey: #3b4253;
+$haiti: #15173f;
+$mine-shaft: #303030;
+$black: #000000;
+
+$cerulean: #19bfdf;
+$steel-blue: #3b8ea5;
+$zumthor: #ecf4ff;
+$aqua-squeeze: #e8f8f5;
+$radical-red: #ff2c69;
+$valencia: #d44747;
+$amaranth: #e5275e; // $radical-red hover
+
+$gold: #ef9118;
+$punch: #df452d;
+$coral: #ff8360;
+$khaki: #e8e288;
+$android-green: #99c24d;
+$pastel-green: #7dce82;
+$turquoise: #00fff5;
+$mountain_meadow: #22bf64;
+
+// Dark
+$koamaru: #393f67;
+$deep-koamaru: #33395d;
+
+/* RATINGS */
+$rating-bad-background: #85889e;
+$rating-normal-background: #a1b540;
+$rating-good-background: #6fac37;
+$rating-verygood-background: #32930a;
+$rating-wow-background: #0b650b;
+
+/* Privacy policy */
+$gdpr-green: #02a701;
+
+$golden-ratio: 1.6180339887498948482;
+
+/*custom - button*/
+$apple: #068236;
+
+/* DIMENSIONS */
+$hero-height-mobile: 64px;
+$hero-height-desktop: 100vh;
+
+$rating-colours: (
+  $rating-bad-background,
+  $rating-normal-background,
+  $rating-good-background,
+  $rating-verygood-background,
+  $rating-wow-background
+);
+
+$cookie-policy-height: 36px;
+$tabs-height: 24px;
+$toolbar-size: 48px;
+
+$radius: 4px;
+
+$cluster-icon-size: 32px;
+$marker-icon-size: 24px;
+$marker-price-width: 48px;
+$marker-price-height: 24px;
+$marker-arrow-size: 6px;
+
+$slider-handle: 28px;
+$slider-height: 4px;
+
+$footer-social-size: 36px;
+
+$property-overlay-tablet: 420px;
+
+$list-width: 1120px;
+$hybrid-width: 810px;
+$result-width-list: 800px;
+$result-width-hybrid: 750px;
+
+$ad-partners: (
+  "airbnb": #ff5a5f,
+  "booking_com": #1d437c,
+  "findhotel": #50a8e4,
+  "homeaway": #286fb7,
+  "hotelscombined": #00aef0,
+  "hoteltonight": #3b2151,
+  "hotels_com": #ca2c2f,
+  "kayak": #ff6712,
+  "orbitz": #00b1ff,
+  "priceline": #0077ff,
+  "travelocity": #00a6d1,
+  "tripadvisor": #2ab38f,
+  "trivago": #e37a1f,
+);
+
+$primary: #39a28a;
+$primary-dark: #2f8370;
+$border-color: #d8d8d8;
+$text-color: #222222;
+$amenities: #0ba866;
+$chip-border: #d7d8df;

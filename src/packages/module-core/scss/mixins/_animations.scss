@@ -1,0 +1,103 @@
+// TRANSITIONS AND TRANSOFMS
+@mixin transition($props, $timing-function: ease, $duration: 0.4s) {
+  $transition: unquote("");
+  @each $prop in $props {
+    $transition: $transition
+      unquote("#{$prop} #{$timing-function} #{$duration}");
+    // Add comma if not dealing with the last item of list
+    @if $prop != nth($props, length($props)) {
+      $transition: $transition unquote(",");
+    }
+  }
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin transform($props) {
+  $transformation: unquote("");
+  @each $prop in $props {
+    $transformation: $transformation unquote("#{$prop}");
+    // Add comma if not dealing with the last item of list
+    @if $prop != nth($props, length($props)) {
+      $transformation: $transformation unquote(" ");
+    }
+  }
+  -webkit-transform: $transformation;
+  -moz-transform: $transformation;
+  -ms-transform: $transformation;
+  transform: $transformation;
+}
+
+@mixin transform-origin($origins) {
+  -webkit-transform-origin: $origins;
+  -moz-transform-origin: $origins;
+  -ms-transform-origin: $origins;
+  transform-origin: $origins;
+}
+
+@mixin animation(
+  $animation,
+  $duration: 3s,
+  $timing: ease-out,
+  $iteration-count: 1
+) {
+  -webkit-animation-name: $animation;
+  -moz-animation-name: $animation;
+  -o-animation-name: $animation;
+  animation-name: $animation;
+
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -o-animation-duration: $duration;
+  animation-duration: $duration;
+
+  -webkit-animation-timing-function: $timing;
+  -moz-animation-timing-function: $timing;
+  -o-animation-timing-function: $timing;
+  animation-timing-function: $timing;
+
+  -webkit-animation-iteration-count: $iteration-count;
+  -moz-animation-iteration-count: $iteration-count;
+  -o-animation-iteration-count: $iteration-count;
+  animation-iteration-count: $iteration-count;
+}
+
+@mixin keyframes($animation) {
+  @-webkit-keyframes #{$animation} {
+    @content;
+  }
+  @-moz-keyframes #{$animation} {
+    @content;
+  }
+  @-o-keyframes #{$animation} {
+    @content;
+  }
+  @keyframes #{$animation} {
+    @content;
+  }
+}
+
+@mixin loader(
+  $animation,
+  $primary: #eeeeee,
+  $secondary: $gainsboro,
+  $background: #f6f7f8
+) {
+  border-radius: rem-calc(5);
+  margin-bottom: rem-calc($animation);
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: $background;
+  background: linear-gradient(
+    to right,
+    $primary 8%,
+    $secondary 18%,
+    $primary 33%
+  );
+  background-size: rem-calc(800 6 * 6);
+}
